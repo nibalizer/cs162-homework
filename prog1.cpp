@@ -24,6 +24,7 @@ struct weatherday {
 
 void welcome () { 
   cout << "Welcome to Spencer Krum's CS 162 Prog #1" << endl;
+  cout << "Press ^C to exit" << endl;
 }
 
 
@@ -42,6 +43,7 @@ int main () {
   strcpy(week[6].dayname, "Sunday");
   
 
+  while (1) {
 
   for(int i = 0; i<7; i++){
     for(int j = 0; j<8; j++){ 
@@ -59,6 +61,12 @@ int main () {
     cout << "The forcast for the high was " << abs(100 * ((float(week[i].values[1]) - float(week[i].values[5]))/float(week[i].values[0]))) << "\% off" << endl;
     cout << "The forcast for the rain was " << abs(100 * ((float(week[i].values[2]) - float(week[i].values[6]))/float(week[i].values[0]))) << "\% off" << endl;
     cout << "The forcast for the wind was " << abs(100 * ((float(week[i].values[3]) - float(week[i].values[7]))/float(week[i].values[0]))) << "\% off" << endl;
+  }
+
+  cout << "Press Ctrl + C to exit. Press any key to go again" << endl;
+  char yesno[10];
+  cin >> yesno;
+
   }
 
 
