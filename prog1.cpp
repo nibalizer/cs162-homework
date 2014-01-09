@@ -45,7 +45,11 @@ int main () {
 
   for(int i = 0; i<7; i++){
     for(int j = 0; j<7; j++){ 
-      cout << "Please enter the " << weathertype[j] << " for " << week[i].dayname << endl;
+      cout << "Please enter the " << weathertype[j] << " for " << week[i].dayname << ": ";
+      int value;
+      cin >> value;
+      week[i].values[j] = value;
+      cout << "The value for " << weathertype[j] << " for " << week[i].dayname << " was: " << week[i].values[j] << endl;
     } 
   }
 
