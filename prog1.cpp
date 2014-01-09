@@ -44,21 +44,22 @@ int main () {
 
 
   for(int i = 0; i<7; i++){
-    for(int j = 0; j<7; j++){ 
+    for(int j = 0; j<8; j++){ 
       cout << "Please enter the " << weathertype[j] << " for " << week[i].dayname << ": ";
       int value;
       cin >> value;
       week[i].values[j] = value;
       cout << "The value for " << weathertype[j] << " for " << week[i].dayname << " was: " << week[i].values[j] << endl;
+
     } 
+    cout << "The high for " << week[i].dayname << " was " << week[i].values[1] << endl;
+    cout << "The low for " << week[i].dayname << " was " << week[i].values[0] << endl;
+    cout << "The average for " << week[i].dayname << " was " << ((week[i].values[0] + week[i].values[1] ) / 2) << endl;
+    cout << "The forcast for the low was " << abs(100 * ((float(week[i].values[0]) - float(week[i].values[4]))/float(week[i].values[0]))) << "\% off" << endl;
+    cout << "The forcast for the high was " << abs(100 * ((float(week[i].values[1]) - float(week[i].values[5]))/float(week[i].values[0]))) << "\% off" << endl;
+    cout << "The forcast for the rain was " << abs(100 * ((float(week[i].values[2]) - float(week[i].values[6]))/float(week[i].values[0]))) << "\% off" << endl;
+    cout << "The forcast for the wind was " << abs(100 * ((float(week[i].values[3]) - float(week[i].values[7]))/float(week[i].values[0]))) << "\% off" << endl;
   }
-
-  char input[50];
-
-  cin >> input;
-
-  cout << "focuk ya!" << endl;
-  cout << "you typed: " << input  << endl;
 
 
   exit(0);
