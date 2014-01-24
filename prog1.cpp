@@ -1,4 +1,23 @@
 
+
+// Spencer Krum
+// CS 162
+// Karlan Fant
+// Jan 23, 2014
+//
+// Algorithm
+//
+// For each day in the week
+//    For each type of weather
+//        Ask the user what the value for the type of weather was for that day of the week
+//        Ask the user what the forcasted value for the type of weather was for that day of the week
+//        store this information
+//    Once the day has been input
+//        Calculate averages and high/lows
+//        Calculate the accuracy of the forcast
+//Repeat until the user sends the TERM signal (^C)
+//
+//
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,14 +29,6 @@ using namespace std;
 
 struct weatherday { 
    char dayname[20];
-//   int low;
-//   int high;
-//   int rain;
-//   int wind;
-//   int f_low;
-//   int f_high;
-//   int f_rain;
-//   int f_wind;
    int values[8];
 };
 
@@ -41,7 +52,7 @@ int main () {
   strcpy(week[4].dayname, "Friday");
   strcpy(week[5].dayname, "Saturday");
   strcpy(week[6].dayname, "Sunday");
-  
+
 
   while (1) {
 
