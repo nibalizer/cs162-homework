@@ -1,0 +1,35 @@
+Assignment #2 CS 162
+
+Spencer Krum
+Feb 12 2014
+
+1) Algorithm for learning a new syntax
+
+* Read the english description of what the syntax does
+* Look at the prototype for the syntax
+* Look at several fleshed out examples of the syntax
+* Repeat these three steps twice
+* Implement the syntax 3 times, refering to the docs when neccessary
+
+
+2) Loop invariant - something that is the same through all iterations of the
+loop
+   Side Effects - a change that was made inside a function that operated on
+neither the arguments nor the return value. Printing to standard out is kind of
+a side effect
+   Modular programming - Breaking the program into logical blocks, and giving
+those blocks structured interfaces. The code inside the block can be
+reconfigured without changing the behavior and other sections of code won't need
+to be modified.
+
+
+3) Ethics:
+
+I would limit exposure to customer data by limiting the data that I store. I
+dont need the full biography of the customer, I only need a few critical pieces
+of information. I would separate the locations of this data. So one database
+server would have the credit card numbers, and the other database server would
+have the names, addresses and such. I would hash all passwords. I would salt all
+passwords.
+
+4) Programming
