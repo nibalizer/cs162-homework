@@ -20,10 +20,26 @@ struct schoolclass { // important not to try to call this 'class'
     char grade;
 };
 
+int read_in_classes(schoolclass * classes, int current){
+    strcpy(classes[current].identifier,"test");
+
+
+    char response;
+    if (num_classes < 59) {
+        return 'n';
+    cout << "cintinue? (y/n)" << endl;
+    cin >> response;
+    return response;
+
+
+}
 
 int main() {
 
     schoolclass classes[60];
+
+    int num_classes = 0;
+    while (read_in_classes(classes, num_classes++) == 'y');
 
     return 0;
 
