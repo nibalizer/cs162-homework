@@ -85,17 +85,36 @@ void two_spaces_between_sentences(char * paragraph_start, char * paragraph_end)
     }
 }
 
+void enter_word_replace(char * paragraph){
+    char replacant[20];
+    char replacement[20];
+
+    cout << "Enter word to replace: " << endl;
+    cin >> replacant;
+    cout << "Enter word to replace with: " << endl;
+    cin >> replacement;
+
+    cout << "Replacing " << replacant << " with " << replacement << endl;
+
+
+}
+
 
 int main(){
   char paragraph_start[300];
   char paragraph_end[600];
+  
 
   cout << "Enter paragraph" << endl;
   cin.get(paragraph_start, 300);
   cout << paragraph_start << endl;
 
   capitalize_sentences(paragraph_start);
+
   two_spaces_between_sentences(paragraph_start, paragraph_end);
+
+
+  enter_word_replace(paragraph_end);
 
 
   cout << "Final State:" << endl;
