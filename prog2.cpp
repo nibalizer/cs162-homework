@@ -19,6 +19,10 @@ void append(char * string, char letter){
     string[len+1] = '\0';
 }
 
+int capitalize( char firstletter){
+    return toupper(firstletter); //really pointless function to fulfil requirement to pass by value
+}
+
 void capitalize_sentences(char * paragraph)
 {
 
@@ -122,6 +126,7 @@ int main(){
   cout << paragraph_start << endl;
 
   capitalize_sentences(paragraph_start);
+  paragraph_start[0] = capitalize(paragraph_start[0]); //first letter in caps
 
   two_spaces_between_sentences(paragraph_start, paragraph_end);
 
