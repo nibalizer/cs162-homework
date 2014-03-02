@@ -86,16 +86,27 @@ void two_spaces_between_sentences(char * paragraph_start, char * paragraph_end)
 }
 
 void enter_word_replace(char * paragraph){
-    char replacant[20];
-    char replacement[20];
+    char continuing;
+    do {
+        char replacant[20];
+        char replacement[20];
 
-    cout << "Enter word to replace: " << endl;
-    cin >> replacant;
-    cout << "Enter word to replace with: " << endl;
-    cin >> replacement;
+        cout << "Enter word to replace: " << endl;
+        cin >> replacant;
+        cout << "Enter word to replace with: " << endl;
+        cin >> replacement;
 
-    cout << "Replacing " << replacant << " with " << replacement << endl;
-
+        cout << "Replacing " << replacant << " with " << replacement << endl;
+        char * instance = strstr(paragraph, replacant); //find the begining of the target word
+        while ( instance) {
+            strncpy(instance, replacement, strlen(replacement)); //replace the word
+            instance = strstr(paragraph, replacant); //Set pointer to next instance
+        }
+        cout << "Do you want to correct another word? (y/n)" << endl;
+        cin >> continuing;
+    } 
+    while (continuing == 'y');
+ 
 }
 
 
