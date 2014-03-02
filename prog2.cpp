@@ -96,8 +96,9 @@ void enter_word_replace(char * paragraph){
 
     cout << "Replacing " << replacant << " with " << replacement << endl;
 
-
 }
+
+
 
 
 int main(){
