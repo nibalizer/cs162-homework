@@ -25,9 +25,25 @@ int read_in_classes(schoolclass * classes, int current){
 
 
     char response;
-    if (num_classes < 59) {
+    if (current < 59) {
         return 'n';
+    }
     cout << "cintinue? (y/n)" << endl;
+    cin >> response;
+    return response;
+
+
+}
+
+int mainmenu(){
+    cout << "Pick one of the following: " << endl;
+    cout << "1. Type class into program (insert)" << endl;
+    cout << "2. Read bulk classes from file" << endl;
+    cout << "3. Write classes to file" << endl;
+    cout << "4. Display classes" << endl;
+    cout << "5. Display classes from a specific term" << endl;
+    cout << "What do you want to do? (1,2,3,4,5)" << endl;
+    int response;
     cin >> response;
     return response;
 
@@ -38,8 +54,9 @@ int main() {
 
     schoolclass classes[60];
 
-    int num_classes = 0;
-    while (read_in_classes(classes, num_classes++) == 'y');
+    //int num_classes = 0;
+    //while (read_in_classes(classes, num_classes++) == 'y');
+    int action = mainmenu();
 
     return 0;
 
