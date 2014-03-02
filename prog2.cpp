@@ -9,7 +9,7 @@
 #include "string.h"
 
 using namespace std;
-const bool debug = true;
+const bool debug = false;
 
 void append(char * string, char letter){
     //function to add a letter to a string
@@ -117,24 +117,26 @@ void enter_word_replace(char * paragraph){
 
 
 int main(){
-  char paragraph_start[300];
-  char paragraph_end[600];
-  
+    char paragraph_start[300];
+    char paragraph_end[600];
+    
 
-  cout << "Enter paragraph" << endl;
-  cin.get(paragraph_start, 300);
-  cout << paragraph_start << endl;
+    cout << "Enter paragraph" << endl;
+    cin.get(paragraph_start, 300);
+    if (debug) {
+        cout << paragraph_start << endl;
+    }
 
-  capitalize_sentences(paragraph_start);
-  paragraph_start[0] = capitalize(paragraph_start[0]); //first letter in caps
+    capitalize_sentences(paragraph_start);
+    paragraph_start[0] = capitalize(paragraph_start[0]); //first letter in caps
 
-  two_spaces_between_sentences(paragraph_start, paragraph_end);
-
-
-  enter_word_replace(paragraph_end);
+    two_spaces_between_sentences(paragraph_start, paragraph_end);
 
 
-  cout << "Final State:" << endl;
-  cout << paragraph_end << endl;
-  return 0;
+    enter_word_replace(paragraph_end);
+
+
+    cout << "Final State:" << endl;
+    cout << paragraph_end << endl;
+    return 0;
 }
