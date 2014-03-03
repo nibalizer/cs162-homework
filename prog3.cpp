@@ -25,8 +25,28 @@ int read_in_classes(schoolclass * classes, int current){
     if (current >= 59) {
         return 'n';
     }
-
-    strcpy(classes[current].identifier,"test");
+    cout << "Enter the course identifier: e.g. BIO442" << endl;
+    char test[20];
+    cin.ignore();
+    cin.get(classes[current].identifier, 20);
+    cout << "Enter the course name: e.g. Advanced Microbiology" << endl;
+    cin.ignore();
+    cin.get(classes[current].name, 50);
+    cout << "Enter the course year and term: e.g. 2012W" << endl;
+    cin.ignore();
+    cin.get(classes[current].termyear, 20);
+    cout << "Enter any comments on the course: e.g. This proffesor is hard " << endl;
+    cin.ignore();
+    cin.get(classes[current].comments, 100);
+    cout << "Is this class required for your major? (y/n)" << endl;
+    char required;
+    cin >> required;
+    if (required == 'y'){
+        classes[current].required = true;}
+    else { 
+        classes[current].required = false;}
+    cout << "What graded did you get in this class? e.g. A or 0 for no grade yet" << endl;
+    cin >> classes[current].grade;
 
 
     cout << "continue? (y/n)" << endl;
@@ -59,13 +79,15 @@ int main() {
     int num_classes = 0;
 
     int action;
-    while  (action != 6) {
+    int sel;
+    while  (action < 6) {
         action = mainmenu();
         cout << action << endl;
         switch (action) {
             case 1:
                 cout << "science" << endl;
-                while (read_in_classes(classes, num_classes++) == 'y');
+                //while (read_in_classes(classes, num_classes++) == 'y');
+                sel = read_in_classes(classes, num_classes++);
                 break;
             case 2:
                 break;
