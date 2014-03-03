@@ -21,14 +21,15 @@ struct schoolclass { // important not to try to call this 'class'
 };
 
 int read_in_classes(schoolclass * classes, int current){
+    char response;
+    if (current >= 59) {
+        return 'n';
+    }
+
     strcpy(classes[current].identifier,"test");
 
 
-    char response;
-    if (current < 59) {
-        return 'n';
-    }
-    cout << "cintinue? (y/n)" << endl;
+    cout << "continue? (y/n)" << endl;
     cin >> response;
     return response;
 
@@ -42,7 +43,8 @@ int mainmenu(){
     cout << "3. Write classes to file" << endl;
     cout << "4. Display classes" << endl;
     cout << "5. Display classes from a specific term" << endl;
-    cout << "What do you want to do? (1,2,3,4,5)" << endl;
+    cout << "6. Quit" << endl;
+    cout << "What do you want to do? (1,2,3,4,5,6)" << endl;
     int response;
     cin >> response;
     return response;
@@ -54,9 +56,29 @@ int main() {
 
     schoolclass classes[60];
 
-    //int num_classes = 0;
-    //while (read_in_classes(classes, num_classes++) == 'y');
-    int action = mainmenu();
+    int num_classes = 0;
+
+    int action;
+    while  (action != 6) {
+        action = mainmenu();
+        cout << action << endl;
+        switch (action) {
+            case 1:
+                cout << "science" << endl;
+                while (read_in_classes(classes, num_classes++) == 'y');
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
+    }
 
     return 0;
 
