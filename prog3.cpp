@@ -86,7 +86,6 @@ int main() {
         switch (action) {
             case 1:
                 while (read_in_classes(classes, num_classes++) == 'y');
-                //sel = read_in_classes(classes, num_classes++);
                 break;
             case 2:
                 break;
