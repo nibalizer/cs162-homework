@@ -49,7 +49,7 @@ int read_in_classes(schoolclass * classes, int current){
     cin >> classes[current].grade;
 
 
-    cout << "continue? (y/n)" << endl;
+    cout << "continue entering classes (y/n)" << endl;
     cin >> response;
     return response;
 
@@ -82,12 +82,11 @@ int main() {
     int sel;
     while  (action < 6) {
         action = mainmenu();
-        cout << action << endl;
+        if (debug){ cout << action << endl; }
         switch (action) {
             case 1:
-                cout << "science" << endl;
-                //while (read_in_classes(classes, num_classes++) == 'y');
-                sel = read_in_classes(classes, num_classes++);
+                while (read_in_classes(classes, num_classes++) == 'y');
+                //sel = read_in_classes(classes, num_classes++);
                 break;
             case 2:
                 break;
