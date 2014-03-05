@@ -56,6 +56,27 @@ int read_in_classes(schoolclass * classes, int current){
 
 }
 
+void display_classes(schoolclass * classes, int num_classes){
+
+    for (int i = 0; i<num_classes; i++){
+        cout << "Id: " << classes[i].identifier << endl;
+        cout << "Name: " << classes[i].name << endl;
+        cout << "Year/Term: " << classes[i].termyear << endl;
+        cout << "Comments: " << classes[i].comments << endl;
+        if (classes[i].required ) { 
+            cout << "Required: " << "YES" << endl;
+        } else {
+            cout << "Required: " << "NO" << endl;
+        }
+        cout << "Grade: " << classes[i].grade << endl;
+
+    }
+
+     
+
+
+}
+
 int mainmenu(){
     cout << "Pick one of the following: " << endl;
     cout << "1. Type class into program (insert)" << endl;
@@ -92,6 +113,7 @@ int main() {
             case 3:
                 break;
             case 4:
+                display_classes(classes, num_classes);
                 break;
             case 5:
                 break;
