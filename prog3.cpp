@@ -6,6 +6,7 @@
 
 
 #include <iostream>
+#include <fstream>
 #include "string.h"
 
 using namespace std;
@@ -72,6 +73,93 @@ void display_classes(schoolclass * classes, int num_classes){
 
     }
 
+}
+
+void write_classes_to_file(schoolclass * classes, int num_classes){
+
+    ofstream classes_db;
+    classes_db.open("classes_db.csv");
+
+    for (int i = 0; i<num_classes; i++){
+        classes_db << classes[i].identifier << ',';
+        classes_db << classes[i].name << ',';
+        classes_db << classes[i].termyear << ',';
+        classes_db << classes[i].comments << ',';
+        if (classes[i].required ) { 
+            classes_db << "y" << ',';
+        } else {
+            classes_db << "n" << ',';
+        }
+        classes_db << classes[i].grade << '\n'; //final entry, close with a newline
+
+    }
+
+}
+
+void read_in_classes_from_file(schoolclass * classes, int &num_classes){
+
+    if (debug) {
+        cout << "reading in file" << endl;
+    }
+    
+    ifstream classes_db;
+    classes_db.open("classes_db.csv");
+
+    while (!classes_db.eof()){
+
+        int current = num_classes++;
+
+        classes_db.get(classes[current].identifier, 20, ',');
+        if (debug) {
+            cout << classes[current].identifier << endl;
+        }
+        classes_db.ignore();
+        classes_db.get(classes[current].name, 50, ',');
+        classes_db.ignore();
+        classes_db.get(classes[current].termyear, 20, ',');
+        classes_db.ignore();
+        classes_db.get(classes[current].comments, 100, ',');
+        classes_db.ignore();
+        char required;
+        classes_db >> required;
+        if (required == 'y'){
+            classes[current].required = true;}
+        else { 
+            classes[current].required = false;}
+        classes_db.ignore();
+        classes_db >> classes[current].grade;
+        classes_db.ignore(10,'\n');
+    }
+    num_classes--;
+
+
+}
+
+void display_classes_with_filter(schoolclass * classes, int num_classes){
+
+    char filter[20];
+
+    cout << "What term?" << endl;
+    cin.ignore();
+    cin.get(filter,20);
+
+
+    for (int i = 0; i<num_classes; i++){
+        if ( ! strcmp(filter, classes[i].termyear)) {  //strcmp doesn't do what you would think
+            cout << "Id: " << classes[i].identifier << endl;
+            cout << "Name: " << classes[i].name << endl;
+            cout << "Year/Term: " << classes[i].termyear << endl;
+            cout << "Comments: " << classes[i].comments << endl;
+            if (classes[i].required ) { 
+                cout << "Required: " << "YES" << endl;
+            } else {
+                cout << "Required: " << "NO" << endl;
+            }
+            cout << "Grade: " << classes[i].grade << endl;
+        }
+
+    }
+
      
 
 
@@ -109,13 +197,16 @@ int main() {
                 while (read_in_classes(classes, num_classes++) == 'y');
                 break;
             case 2:
+                read_in_classes_from_file(classes, num_classes);
                 break;
             case 3:
+                write_classes_to_file(classes, num_classes);
                 break;
             case 4:
                 display_classes(classes, num_classes);
                 break;
             case 5:
+                display_classes_with_filter(classes, num_classes);
                 break;
             default:
                 break;
