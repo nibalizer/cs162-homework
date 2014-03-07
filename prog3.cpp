@@ -10,7 +10,7 @@
 #include "string.h"
 
 using namespace std;
-const bool debug = true;
+const bool debug = false;
 
 struct schoolclass { // important not to try to call this 'class'
     char identifier[20];
