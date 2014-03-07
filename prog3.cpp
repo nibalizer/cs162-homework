@@ -5,6 +5,50 @@
 // Winter 2014
 
 
+/*
+ *
+ * algorithm
+ *
+ * instatiate a static array of 60 schoolclass structs
+ *
+ * We will loop around printing a menu and reading a response
+ *   case statement on the response  for one of six options
+ *   each case calls the function correspondng to that case
+ *
+ *
+ * read in classes from user
+ *
+ *   increase num_classes
+ *   ask user for all info for a class
+ *   put info into class struct in array
+ *   ask if repeat
+ *
+ * read in classes from file
+ *
+ *  open file
+ *  read in elements into struct
+ *  append struct to array
+ *  increment num_classes
+ *  repeart until end of file
+ *
+ * write classes to file
+ *
+ *  write out entire array, separating fields with commas and structs with
+ *  newlines
+ *
+ * display classes
+ *
+ *  iterate through array, printing eache element of each struct
+ *
+ *
+ * display classes matching term
+ *  
+ *  same as display classes, but check if term/year match user input
+ *
+ *
+ *
+ */
+
 #include <iostream>
 #include <fstream>
 #include "string.h"
