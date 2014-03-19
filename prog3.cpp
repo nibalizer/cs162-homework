@@ -174,7 +174,7 @@ void read_in_classes_from_file(schoolclass * classes, int &num_classes){
         classes_db >> classes[current].grade;
         classes_db.ignore(10,'\n');
     }
-    num_classes--;
+    num_classes--; //soooo bad
 
 
 }
