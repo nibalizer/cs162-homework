@@ -26,7 +26,7 @@
 
 using namespace std;
 
-static bool debug = true;
+static bool debug = false;
 
 struct house {
   int price;
@@ -46,6 +46,8 @@ class Housing
     void Prioritize(int selection);
     void Display_all();
     void Display_top();
+    void Display_by_price();
+    void Display_by_name();
 
   private:
     house houses[10]; // A static array, to be replaced with an LLL in program 5
@@ -54,6 +56,92 @@ class Housing
     
 
 };
+
+void Housing::Display_by_name(){
+
+    cout << "Enter location name to match on";
+    char locationname[20];
+    cin.get(locationname, 20, '\n');
+
+    for (int current = 0; current < 10; current++){
+        if (!strcmp(locationname, houses[current].location)) {
+
+            cout << "sqft: " << houses[current].sqft << endl;
+            cout << "price: " << houses[current].price << endl;
+            cout << "bedrooms: " << houses[current].bedrooms << endl;
+            cout << "location: " << houses[current].location << endl;
+            cout << "amenities1: " << houses[current].amenities1 << endl;
+            cout << "amenities2: " << houses[current].amenities2 << endl;
+            cout << "amenities3: " << houses[current].amenities3 << endl;
+
+        }
+
+    }
+
+
+}
+
+void Housing::Display_by_price(){
+
+    cout << "Enter max price: ";
+    int max_price;
+    cin >> max_price;
+    cout << "Enter min price: ";
+    int min_price;
+    cin >> min_price;
+    cin.ignore();
+
+    for (int current = 0; current < 10; current++){
+        if (houses[current].price <= max_price && houses[current].price >= min_price) {
+
+            cout << "sqft: " << houses[current].sqft << endl;
+            cout << "price: " << houses[current].price << endl;
+            cout << "bedrooms: " << houses[current].bedrooms << endl;
+            cout << "location: " << houses[current].location << endl;
+            cout << "amenities1: " << houses[current].amenities1 << endl;
+            cout << "amenities2: " << houses[current].amenities2 << endl;
+            cout << "amenities3: " << houses[current].amenities3 << endl;
+
+        }
+
+    }
+
+
+}
+
+void Housing::Prioritize(int selection){
+
+    switch (selection) {
+        case 1:
+            Display_by_price();
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            break;
+    }
+
+}
+
+void Housing::Display_all(){
+    cout << "Displaying all options" << endl;
+
+    for (int current = 0; current < 10; current++){
+        cout << "sqft: " << houses[current].sqft << endl;
+        cout << "price: " << houses[current].price << endl;
+        cout << "bedrooms: " << houses[current].bedrooms << endl;
+        cout << "location: " << houses[current].location << endl;
+        cout << "amenities1: " << houses[current].amenities1 << endl;
+        cout << "amenities2: " << houses[current].amenities2 << endl;
+        cout << "amenities3: " << houses[current].amenities3 << endl;
+
+    }
+
+}
 
 
 Housing::Housing(char filename[]){
@@ -142,6 +230,8 @@ Housing::Housing(char filename[]){
 
         houses_db.ignore(); //eat the final newline 
 
+        current++;
+
     }
 
 }
@@ -156,6 +246,9 @@ int main() {
 
     strcpy(filename, "houses.txt");
     Housing housing(filename);
+    housing.Display_all();
+    housing.Display_by_price();
+    housing.Display_by_name();
     return 0;
 
 }
