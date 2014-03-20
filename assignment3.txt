@@ -1,0 +1,38 @@
+CS 162 
+Spencer Krum
+Karla Fant
+
+Testing software algorithim
+
+1) import all functions except main
+2) Run a battery of known inputs against each function, and compare the output
+with known outputs
+3) Have both success cases and failed cases
+4) Have at least 1 test case per function
+5) Have 1 test case per control statement (if, switch) to test those cases
+
+
+Style:
+
+Did I comment all variables? - no
+Did each function have a header comment - no
+Was the algorithm clear - yes
+
+I think my C++ is still developing. I feel a lot more comfortable in Python.
+Still, I enjoy C++. It is, as they say, closer to the metal. Being able to
+manipulate arrays directly is awesome. Also having a staticly typed language is
+both frustrating and cool. I have to write a lot less 'is it a number?' code.
+
+
+Ethics:
+
+My program does what the instructor assigned, but is not what I would call
+user friendly. It requires the user to understand what the code is doing behind
+the scenes too much. For instance, if anyone but Karla or another CS 162 student
+ran this code, it would be unclear why the changes that were being made were
+being made. Still, this code is stupid simple. It wouldn't be too hard for the
+users to figure it out. The restriction on line length, 300 chars, is arbitrary
+and would probably confuse a new user.
+
+
+
