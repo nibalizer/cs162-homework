@@ -50,6 +50,8 @@ class Housing
     void Display_by_price();
     void Display_by_name();
     void Display_and_proceed(house * cur);
+    void Display_and_proceed_on_price(house * cur, int max_price, int min_price);
+    void Display_and_proceed_on_name(house * cur, char * name);
 
   private:
     //house houses[10]; // A static array, to be replaced with an LLL in program 5
@@ -63,25 +65,12 @@ class Housing
 
 void Housing::Display_by_name(){
 
-    cout << "Enter location name to match on";
+    cout << "Enter location name to match on: ";
     char locationname[20];
     cin.get(locationname, 20, '\n');
 
-    for (int current = 0; current < 10; current++){
-        if (!strcmp(locationname, houses[current].location)) {
 
-            cout << "sqft: " << houses[current].sqft << endl;
-            cout << "price: " << houses[current].price << endl;
-            cout << "bedrooms: " << houses[current].bedrooms << endl;
-            cout << "location: " << houses[current].location << endl;
-            cout << "amenities1: " << houses[current].amenities1 << endl;
-            cout << "amenities2: " << houses[current].amenities2 << endl;
-            cout << "amenities3: " << houses[current].amenities3 << endl;
-
-        }
-
-    }
-
+    Display_and_proceed_on_name(head, locationname);
 
 }
 
@@ -95,20 +84,8 @@ void Housing::Display_by_price(){
     cin >> min_price;
     cin.ignore();
 
-    for (int current = 0; current < 10; current++){
-        if (houses[current].price <= max_price && houses[current].price >= min_price) {
 
-            cout << "sqft: " << houses[current].sqft << endl;
-            cout << "price: " << houses[current].price << endl;
-            cout << "bedrooms: " << houses[current].bedrooms << endl;
-            cout << "location: " << houses[current].location << endl;
-            cout << "amenities1: " << houses[current].amenities1 << endl;
-            cout << "amenities2: " << houses[current].amenities2 << endl;
-            cout << "amenities3: " << houses[current].amenities3 << endl;
-
-        }
-
-    }
+    Display_and_proceed_on_price(head, max_price, min_price);
 
 
 }
@@ -131,6 +108,48 @@ void Housing::Prioritize(int selection){
     }
 
 }
+void Housing::Display_and_proceed_on_name(house * cur, char * name){
+
+    
+    if (!strcmp(cur->location, name)) {
+
+        cout << "sqft: " << cur->sqft << endl;
+        cout << "price: " << cur->price << endl;
+        cout << "bedrooms: " << cur->bedrooms << endl;
+        cout << "location: " << cur->location << endl;
+        cout << "amenities1: " << cur->amenities1 << endl;
+        cout << "amenities2: " << cur->amenities2 << endl;
+        cout << "amenities3: " << cur->amenities3 << endl;
+
+    }
+    
+    if (cur->next) {
+        Display_and_proceed_on_name(cur->next, name);
+    }
+
+}
+
+void Housing::Display_and_proceed_on_price(house * cur, int max_price, int min_price){
+
+    
+    if (cur->price <= max_price && cur->price >= min_price) {
+
+        cout << "sqft: " << cur->sqft << endl;
+        cout << "price: " << cur->price << endl;
+        cout << "bedrooms: " << cur->bedrooms << endl;
+        cout << "location: " << cur->location << endl;
+        cout << "amenities1: " << cur->amenities1 << endl;
+        cout << "amenities2: " << cur->amenities2 << endl;
+        cout << "amenities3: " << cur->amenities3 << endl;
+
+    }
+    
+    if (cur->next) {
+        Display_and_proceed_on_price(cur->next, max_price, min_price);
+    }
+
+}
+
 
 void Housing::Display_and_proceed(house * cur){
 
@@ -254,6 +273,7 @@ Housing::Housing(char filename[]){
         housetemp->next = head;
         head = housetemp;
 
+
     }
 
 }
@@ -269,8 +289,8 @@ int main() {
     strcpy(filename, "houses.txt");
     Housing housing(filename);
     housing.Display_all();
-    //housing.Display_by_price();
-    //housing.Display_by_name();
+    housing.Display_by_price();
+    housing.Display_by_name();
     return 0;
 
 }
