@@ -1,0 +1,66 @@
+Spencer Krum
+Karla Fant
+CS 162
+Assignment 4
+
+
+Test Plan:
+
+Assignment 4:
+
+Select sort by best price:
+1120,2958,1,southeast,quiet neighborhood,non-smoking,two-car garage,
+
+Select sort by highest price:
+2550,3959,2,St. Johns,good schools,gated property,one-car garage,
+
+Select an area matching 'southwest':
+1720,1499,0,southwest,laundry on-site,close to shopping,fireplace,
+
+Select an area  mathing 'Gresham':
+No result
+
+Select an area matching Vancouver:
+1720,1499,0,southwest,laundry on-site,close to shopping,fireplace,
+
+Select a bedrooms of 4:
+1810,2119,4,Hillsboro,cats ok,close to campus,laundry on-site,
+1300,2595,4,Lake Oswego,quiet neighborhood,close to shopping,pool,
+1080,857,4,north Portland,duplex,fireplace,close to campus,
+
+Select a attributes of 'close to parks':
+1445,1579,1,Clackamas,cats ok,close to parks,quiet neighborhood,
+
+
+
+
+Ethics:
+
+
+Ethics in Computer and computer science at PSU is a complex topic. I believe that PSU should cultivate a culture of colaboaration and trust between students. I think that every student should be able to make their code publicly available on GitHub, however I also think that PSU has the right to ask that this code be kept unshared until the end of the term. I think more students today are at college for their own benefit than for 'chasing paper' of a degree. A motivated and committed student would never copy some one elses code because that would deny them the experience of learning to do the coding work on their own. That being said, students should be happy to talk and share algorithms and snippits. So much of this stuff is big-ideas: algorithms and structure of programming, and a lot of it is also small snippits: deallocating an array of dynamic memory for instance. The trivia and the big ideas should flow freely between students. The larger program however, should be unique and independent work. Violating this is plagirism.
+
+
+Terminology:
+
+
+Dereferencing: following the memory address to the actual memory.
+Precedence and associtivity: The relationship ordering has to operators in complex statements
+Dynamically allocated Arrays: Using minimum, and freeable, memory for lists of objects
+Boundary Conditions: The off by one error at the end of the for loop.
+Recursive defiitions: using the item being defined in the definition, e.g. GNU's Not Unix for GNU
+Scope: the local space of varible definitions, varibales described in one scope are usaully not available in other scopes
+Inheritiance; The mechanism by which scopes are modlded
+Polymorphism: Adaptive programming that can consume multiple types and produce meaningful output
+
+
+
+
+
+
+
+
+
+
+
+
+
