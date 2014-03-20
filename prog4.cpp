@@ -8,17 +8,44 @@
 /*
  *
  * content of the external data file
- * 2220|2725|2|northeast|good schools|nice view|vaults|
- * 1120|2958|1|southeast|quiet neighborhood|non-smoking|two-car garage|
- * 1445|1579|1|Clackamas|cats ok|close to parks|quiet neighborhood|
- * 1070|1330|2|St. Helens|gated property|close to shopping|close to parks|
- * 1300|2595|4|Lake Oswego|quiet neighborhood|close to shopping|pool|
- * 1810|2119|4|Hillsboro|cats ok|close to campus|laundry on-site|
- * 1080|857|4|north Portland|duplex|fireplace|close to campus|
- * 1960|3952|1|Vancouver|cats ok|quiet neighborhood|pool|
- * 1720|1499|0|southwest|laundry on-site|close to shopping|fireplace|
- * 2550|3959|2|St. Johns|good schools|gated property|one-car garage|
+ * 2220,2725,2,northeast,good schools,nice view,vaults,
+ * 1120,2958,1,southeast,quiet neighborhood,non-smoking,two-car garage,
+ * 1445,1579,1,Clackamas,cats ok,close to parks,quiet neighborhood,
+ * 1070,1330,2,St. Helens,gated property,close to shopping,close to parks,
+ * 1300,2595,4,Lake Oswego,quiet neighborhood,close to shopping,pool,
+ * 1810,2119,4,Hillsboro,cats ok,close to campus,laundry on-site,
+ * 1080,857,4,north Portland,duplex,fireplace,close to campus,
+ * 1960,3952,1,Vancouver,cats ok,quiet neighborhood,pool,
+ * 1720,1499,0,southwest,laundry on-site,close to shopping,fireplace,
+ * 2550,3959,2,St. Johns,good schools,gated property,one-car garage,
  */
+
+/* algorithm
+
+Open the file
+Allocate a static array of structs
+set a counter to zero
+
+read until comma, put that value into array[counter].property -- for every value in the struct
+at newline, increment the counter
+continue until end of file is reached
+
+Dump out the contents of the array of structs using iteration and print
+
+Promp the user for a price range... save a max and min value
+
+for each element in the array, check if the price is between the max and min value
+   if it is,
+      print the metadata for that element
+
+Promp the user for string location to match on 
+
+for each element in the array, check if the location given matches the location of the element
+   if it is,
+      print the metadata for that element
+
+
+*/
 
 #include <fstream>
 #include "string.h"
@@ -26,9 +53,9 @@
 
 using namespace std;
 
-static bool debug = false;
+static bool debug = false; //global STATIC variable.. to aid in debugging only
 
-struct house {
+struct house { //struct to hold the data
   int price;
   int sqft;
   int bedrooms;
@@ -38,11 +65,11 @@ struct house {
   char * amenities3;
 };
 
-class Housing
+class Housing //class to hold the array of structs
 {
   public:
     Housing(char filename[]);
-    ~Housing();
+    ~Housing(); //destructor
     void Prioritize(int selection);
     void Display_all();
     void Display_top();
@@ -58,6 +85,7 @@ class Housing
 };
 
 void Housing::Display_by_name(){
+//function to match on string
 
     cout << "Enter location name to match on";
     char locationname[20];
@@ -82,6 +110,7 @@ void Housing::Display_by_name(){
 }
 
 void Housing::Display_by_price(){
+//function to match on integer range
 
     cout << "Enter max price: ";
     int max_price;
@@ -110,6 +139,8 @@ void Housing::Display_by_price(){
 }
 
 void Housing::Prioritize(int selection){
+//function to build a set of options
+//incomplete because ran out of time
 
     switch (selection) {
         case 1:
@@ -128,6 +159,7 @@ void Housing::Prioritize(int selection){
 }
 
 void Housing::Display_all(){
+//function to dump data 
     cout << "Displaying all options" << endl;
 
     for (int current = 0; current < 10; current++){
@@ -145,11 +177,13 @@ void Housing::Display_all(){
 
 
 Housing::Housing(char filename[]){
+//constructor
 
     if (debug){
         cout << "opening " << filename << endl;
     }
 
+//open file
     ifstream houses_db;
     houses_db.open(filename);
     int current = 0;
@@ -172,6 +206,7 @@ Housing::Housing(char filename[]){
         houses[current].sqft = sqft;
         houses_db.ignore(); //eat the delimiter
 
+        //set price
         int price;
         houses_db >> price;
         if (debug) {
@@ -180,6 +215,7 @@ Housing::Housing(char filename[]){
         houses[current].price= price;
         houses_db.ignore(); //eat the delimiter
 
+        //set bedrooms
         int bedrooms;
         houses_db >> bedrooms;
         if (debug) {
@@ -231,12 +267,14 @@ Housing::Housing(char filename[]){
         houses_db.ignore(); //eat the final newline 
 
         current++;
+        //increment the counter
 
     }
 
 }
 
 Housing::~Housing(){
+//destructor, doesn't do much
 
 }
 
@@ -246,6 +284,8 @@ int main() {
 
     strcpy(filename, "houses.txt");
     Housing housing(filename);
+    //sorry there is no interactive menu here
+    //ran out of time
     housing.Display_all();
     housing.Display_by_price();
     housing.Display_by_name();
