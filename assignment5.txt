@@ -1,0 +1,45 @@
+Spencer Krum
+Assignment #5
+CS 162
+Karla Fant
+
+
+Software Design:
+
+In the future I want to be much clearer about my requirements. When I read Karla
+assignments I usually sit down and start coding right away. This is not the best
+approach, I have learned this term. Often they need several readings to really
+understand whats going on. Also, twice this term I have spent significant time
+coding only to then relaize that I didn't understand the actual behavior that
+was being asked of me. In the future I want to generate my own list of
+requirements from the Karla instructions, then code to those requirements.
+
+
+Ethics:
+
+70% of the solution comming from another person is unacceptable. It is important
+that the code be entirely your own. When is it acceptable to get help from
+others? For one, simple patterns like Linear Linked Lists should be taught from
+experienced people to junior people. This gets the junior people started quickly
+and egaging with the higher level material of software design and programming
+patterns, instead of fighting with syntax and a jumble of bad ideas. Still, the
+core loop and structure of the application being developed should be done by the
+student.
+
+
+Programming
+
+
+We use the -> when accessing a member of a pointer and . when accessing the
+member of the object directly.
+
+Recursion is useful when the end state is not known at complile time (like the
+length of an LLL) and must be 'discovered' by a progrmatic system. It also helps
+make really concise and clean code.
+
+
+Tail recursion: Tail recursion is a special case of recursion where the stack
+does not grow. This can be more performant if your language/compiler supports
+it.
+
+
